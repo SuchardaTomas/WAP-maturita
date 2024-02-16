@@ -8,15 +8,25 @@ export default function CatCreateForm() {
     const [info, setInfo] = useState();
     const navigate = useNavigate();
 
-    const postForm = () => {}
+    const postForm = async () => {
+    
+        const cat = await createCat(formData);
+        if(cat.status === 201) {
+            redirectToSuccessPage(cat.payload._id);
+        } else {
+            setInfo(cat.msg);
+        }
+    };
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
     const handlePost = (e) => {
         e.preventDefault();
         postForm();
-    }
-    const redirectToSuccessPage = () => {}
+    };
+    const redirectToSuccessPage = (id) => {
+        return navigate(`/createdcat/${id}`);
+    };
 
     return(
         <>
@@ -31,7 +41,7 @@ export default function CatCreateForm() {
                 </button>
             </form>
 
-
+            <p>{info}</p>
 
             <Link to={"/"}>
                 <p>Go back</p>
