@@ -10,8 +10,8 @@ export const getAllCats = async () => {
   return {
     status: req.status,
     msg: data.msg,
-    payload: data.payload
-  }
+    payload: data.payload,
+  };
 };
 
 export const getCatById = async (id) => {
@@ -26,8 +26,8 @@ export const getCatById = async (id) => {
   return {
     status: req.status,
     msg: data.msg,
-    payload: data.payload
-  }
+    payload: data.payload,
+  };
 };
 
 export const createCat = async (formData) => {
@@ -43,8 +43,8 @@ export const createCat = async (formData) => {
   return {
     status: req.status,
     msg: data.msg,
-    payload: data.payload
-  }
+    payload: data.payload,
+  };
 };
 
 export const updateCat = async (id, formData) => {
@@ -60,8 +60,8 @@ export const updateCat = async (id, formData) => {
   return {
     status: req.status,
     msg: data.msg,
-    payload: data.payload
-  }
+    payload: data.payload,
+  };
 };
 
 export const deleteCat = async (id) => {
@@ -76,6 +76,6 @@ export const deleteCat = async (id) => {
   return {
     status: req.status,
     msg: data.msg,
-    payload: data.payload
-  }
+    payload: data.payload,
+  };
 };
