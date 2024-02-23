@@ -3,7 +3,7 @@ const Cat = require("../models/cats");
 exports.getAllCats = async (req, res) => {
   try {
     const result = await Cat.find();
-    if(result && result.length !== 0) {
+    if (result && result.length !== 0) {
       return res.status(200).send({
         msg: "Cats found!",
         payload: result,
@@ -18,13 +18,13 @@ exports.getAllCats = async (req, res) => {
 exports.getCatById = async (req, res) => {
   try {
     const result = await Cat.findById(req.params.id);
-    if(result) {
+    if (result) {
       return res.status(200).send({
         msg: "Cat found",
         payload: result,
       });
     }
-    res.status(404).send({ msg: "Cat not found "});
+    res.status(404).send({ msg: "Cat not found " });
   } catch (error) {
     res.status(500).send(error);
   }
@@ -33,7 +33,7 @@ exports.getCatById = async (req, res) => {
 exports.deleteCat = async (req, res) => {
   try {
     const result = await Cat.findByIdAndDelete(req.params.id);
-    if(result) {
+    if (result) {
       return res.status(200).send({
         msg: "Cat deleted",
       });
@@ -46,20 +46,20 @@ exports.deleteCat = async (req, res) => {
 
 exports.updateCat = async (req, res) => {
   try {
-    const data = ({
+    const data = {
       name: req.body.name,
       legs: req.body.legs,
       color: req.body.color,
-    });
+    };
     const result = await Cat.findByIdAndUpdate(req.params.id, data);
-    if(result) {
+    if (result) {
       return res.status(200).send({
         msg: "Cat updated",
-        payload: result
+        payload: result,
       });
     }
     res.status(500).send({
-      msg:"Cat was not updated",
+      msg: "Cat was not updated",
     });
   } catch (error) {
     res.status(500).send(error);
@@ -74,14 +74,14 @@ exports.createCat = async (req, res) => {
       color: req.body.color,
     });
     const result = await data.save();
-    if(result) {
+    if (result) {
       return res.status(201).send({
         msg: "Cat created",
-        payload: result
+        payload: result,
       });
     }
     res.status(500).send({
-      msg:"Cat was not created"
+      msg: "Cat was not created",
     });
   } catch (error) {
     res.status(500).send(error);
