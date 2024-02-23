@@ -68,7 +68,6 @@ exports.updateCat = async (req, res) => {
 
 exports.createCat = async (req, res) => {
   try {
-    console.log(req.body)
     const data = new Cat({
       name: req.body.name,
       legs: req.body.legs,
