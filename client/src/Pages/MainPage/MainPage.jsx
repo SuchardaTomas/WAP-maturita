@@ -7,10 +7,6 @@ export default function MainPage() {
         <p>Cat create form</p>
       </Link>
 
-      <Link to={"/updatecat/aaa"}>
-        <p>Cat update form</p>
-      </Link>
-
       <Link to={"/cats"}>
         <p>Cat list</p>
       </Link>
