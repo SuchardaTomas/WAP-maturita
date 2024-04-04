@@ -63,9 +63,8 @@ export default function CatView() {
 
   return (
     <>
-      <h1>Cat view </h1>
+      <h1>{cat.name}</h1>
       <p>Cat id: {id}</p>
-      <p>Cat name: {cat.name}</p>
       <p>Cat legs: {cat.legs}</p>
       <p>Cat color: {cat.color}</p>
       <form>

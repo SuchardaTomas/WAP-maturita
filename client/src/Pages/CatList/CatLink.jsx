@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 export default function CatLink(props) {
   return (
     <>
-
         <div className="card custom-card">
           <div className="card-content">
             <p className="subtitle">{props.name}</p>
@@ -19,22 +18,13 @@ export default function CatLink(props) {
 
             <p className="card-footer-item">
               <span>
-                <Link to={"/updatecat"}>
-                  <p>Delete cat</p>
-                </Link>
-              </span>
-            </p>
-
-            <p className="card-footer-item">
-              <span>
-                <Link to={"/updatecat"}>
+                <Link to={`/cat/${props.id}`}>
                   <p>View Cat</p>
                 </Link>
               </span>
             </p>
           </footer>
         </div>
-
     </>
   );
 }
