@@ -31,6 +31,7 @@ export const getCatById = async (id) => {
 };
 
 export const createCat = async (formData) => {
+  console.log(formData);
   const req = await fetch(`http://localhost:3000/cats`, {
     headers: {
       Accept: "application/json",

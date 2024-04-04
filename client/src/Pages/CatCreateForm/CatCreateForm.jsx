@@ -2,6 +2,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { createCat } from "../../Models/Cat";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
+import "./CatCreateForm.css"
+ 
 export default function CatCreateForm() {
   const [formData, setFormData] = useState();
   const [info, setInfo] = useState();
@@ -30,35 +35,69 @@ export default function CatCreateForm() {
     <>
       <h1>Cat create form</h1>
 
-      <form>
-        <input
-          type="text"
-          required
-          name="name"
-          placeholder="Enter name"
-          onChange={(e) => handleChange(e)}
-        />
-        <input
-          type="number"
-          required
-          name="legs"
-          placeholder="Enter number of legs"
-          onChange={(e) => handleChange(e)}
-        />
-        <input
-          type="text"
-          required
-          name="color"
-          placeholder="Enter color"
-          onChange={(e) => handleChange(e)}
-        />
-        <button onClick={handlePost}>Create cat</button>
-      </form>
+        <div className="field">
+          <div className="control has-icons-left has-icons-right">
+            <input
+              className="input is-medium"
+              name="name"
+              type="text"
+              placeholder="Enter name of cat"
+              required
+              onChange={(e) => handleChange(e)}
+            />
+            <span className="icon is-small is-left">
+              <i className="fas fa-envelope fa-xs" />
+            </span>
+            <span className="icon is-small is-right">
+              <i className="fas fa-check fa-xs" />
+            </span>
+          </div>
+        </div>
+
+        <div className="field">
+          <div className="control has-icons-left has-icons-right">
+            <input
+              className="input is-medium"
+              type="number"
+              name="legs"
+              placeholder="Enter number of legs"
+              required
+              onChange={(e) => handleChange(e)}
+            />
+            <span className="icon is-left">
+              <i className="fas fa-envelope fa-sm" />
+            </span>
+            <span className="icon is-right">
+              <i className="fas fa-check fa-sm" />
+            </span>
+          </div>
+        </div>
+
+        <div className="field">
+          <div className="control has-icons-left has-icons-right">
+            <input
+              className="input is-medium"
+              type="text"
+              name="color"
+              placeholder="Enter color"
+              required
+              onChange={(e) => handleChange(e)}
+            />
+            <span className="icon is-medium is-left">
+              <i className="fas fa-envelope" />
+            </span>
+            <span className="icon is-medium is-right">
+              <i className="fas fa-check" />
+            </span>
+          </div>
+        </div>
+
+        <button className="button is-link is-light" onClick={handlePost}>Create cat</button>
 
       <p>{info}</p>
 
       <Link to={"/"}>
-        <p>Go back</p>
+          <FontAwesomeIcon icon={faArrowLeft} size="3x"/>
       </Link>
     </>
   );
