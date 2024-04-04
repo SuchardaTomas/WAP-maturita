@@ -43,42 +43,11 @@ export default function CatList() {
     <>
       <h1>Cat list</h1>
       {cats.map((cat, index) => (
-        <div className="container">
-          <div className="card custom-card">
-            <div className="card-content">
-              <p className="subtitle">{cat.name}</p>
-            </div>
-            <footer className="card-footer">
-              <p className="card-footer-item">
-                <span>
-                  <Link to={"/updatecat"}>
-                    <p>Update cat</p>
-                  </Link>
-                </span>
-              </p>
-
-              <p className="card-footer-item">
-                <span>
-                  <Link to={"/updatecat"}>
-                    <p>Delete cat</p>
-                  </Link>
-                </span>
-              </p>
-
-              <p className="card-footer-item">
-                <span>
-                  <Link to={"/updatecat"}>
-                    <p>View Cat</p>
-                  </Link>
-                </span>
-              </p>
-            </footer>
-          </div>
-        </div>
+        <CatLink key={index} name={cat.name} id={cat._id}/>
       ))}
 
       <Link to={"/"}>
-        <FontAwesomeIcon icon={faArrowLeft} size="3x" />
+        <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey"/>
       </Link>
     </>
   );

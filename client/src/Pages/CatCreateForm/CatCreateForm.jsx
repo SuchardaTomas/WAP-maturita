@@ -91,12 +91,12 @@ export default function CatCreateForm() {
           </div>
         </div>
 
-        <button className="button is-link is-light" onClick={handlePost}>Create cat</button>
+        <button className="button is-medium is-dark" onClick={handlePost}>Create cat</button>
 
       <p>{info}</p>
 
       <Link to={"/"}>
-          <FontAwesomeIcon icon={faArrowLeft} size="3x"/>
+          <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey"/>
       </Link>
     </>
   );
