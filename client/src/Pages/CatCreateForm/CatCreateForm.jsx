@@ -5,7 +5,6 @@ import { createCat } from "../../Models/Cat";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-import "./CatCreateForm.css"
  
 export default function CatCreateForm() {
   const [formData, setFormData] = useState();
