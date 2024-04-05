@@ -2,6 +2,10 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { updateCat, getCatById } from "../../Models/Cat";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
+
 export default function CatUpdateForm() {
   const { id } = useParams();
   const [formData, setFormData] = useState();
@@ -125,10 +129,14 @@ export default function CatUpdateForm() {
           </div>
         </div>
 
+      
+
+      <button className="button is-medium is-dark" onClick={handlePost}>Create cat</button>
+
       <p>{info}</p>
 
       <Link to={"/"}>
-        <p>Go back</p>
+          <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey"/>
       </Link>
     </>
   );

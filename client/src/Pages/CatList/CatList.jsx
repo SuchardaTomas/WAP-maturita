@@ -42,12 +42,13 @@ export default function CatList() {
   return (
     <>
       <h1>Cat list</h1>
+
       {cats.map((cat, index) => (
-        <CatLink key={index} name={cat.name} id={cat._id}/>
+        <CatLink key={index} name={cat.name} id={cat._id} />
       ))}
 
       <Link to={"/"}>
-        <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey"/>
+        <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey" />
       </Link>
     </>
   );

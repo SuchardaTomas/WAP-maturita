@@ -2,6 +2,9 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { getCatById, deleteCat } from "../../Models/Cat";
 import { useEffect, useState } from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
 export default function CatView() {
   const { id } = useParams();
   const [cat, setCat] = useState();
@@ -21,25 +24,25 @@ export default function CatView() {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    if(formData === cat.name) {
+    if (formData === cat.name) {
       const result = await deleteCat(id);
-      if(result.status === 200) {
-        redirect(id); 
+      if (result.status === 200) {
+        redirect(id);
       } else {
         setInfo(result.msg);
       }
     } else {
       setInfo("Wrong cat name");
     }
-  }
+  };
 
   const handleChange = (e) => {
     setFormData(e.target.value);
-  }
+  };
 
   const redirect = (id) => {
     return navigate(`/deletedcat/${id}`);
-  }
+  };
 
   useEffect(() => {
     load();
@@ -64,23 +67,28 @@ export default function CatView() {
   return (
     <>
       <h1>{cat.name}</h1>
-      <p>Cat id: {id}</p>
-      <p>Cat legs: {cat.legs}</p>
-      <p>Cat color: {cat.color}</p>
+
+      <div className="card">
+        <div className="card-content">
+          <div className="content">
+            <p>ID: {id}</p>
+            <p>Legs: {cat.legs}</p>
+            <p>Color: {cat.color}</p>
+          </div>
+        </div>
+      </div>
+
       <form>
-        <p>Napište jméno kočky pro smazání kočky</p>
-        <input type="text" placeholder={cat.name} onChange={handleChange}/>
-        <button onClick={handleDelete}>Delete cat</button>
+        <p className="subtitle">Napište jméno pro smazání kočky</p> <br/>
+        <input className="input" type="text" placeholder={cat.name} onChange={handleChange} />
+        <button className="button is-medium is-dark" onClick={handleDelete}>Delete cat</button>
         <p>{info}</p>
       </form>
-      
-      <Link to={`/updatecat/${id}`}>
-        <p>Update cat</p>
-      </Link>
 
       <Link to={"/"}>
-        <p>Go back</p>
+          <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey"/>
       </Link>
     </>
   );
 }
+

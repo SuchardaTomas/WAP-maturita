@@ -12,9 +12,15 @@ body {
 }
 
 .card {
-  padding: 2em;
+  padding: 1.5em;
   background-color: #14161A;
   color: white;
+  border: 1px solid grey;
+  margin: 24px;
+}
+
+.main-card {
+  width: 280px;
 }
 
 h1 {
@@ -28,4 +34,17 @@ h1 {
 
 .container {
   padding: 20px;
+}
+
+.subtitle {
+  color: white;
+}
+
+.button {
+  border: 0.5px solid grey;
+}
+
+.card-container {
+  display: flex;
+  gap: 2rem;
 }

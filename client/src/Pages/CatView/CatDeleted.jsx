@@ -1,17 +1,25 @@
 import { Link, useParams } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
 // /deletedcat/:id
 export default function CatDeleted() {
+  const { id } = useParams();
 
-    const { id } = useParams();
+  return (
+    <>
+      <div className="card">
+        <div className="card-content">
+          <div className="content">
+            <p>Cat {id} was deleted</p>
+          </div>
+        </div>
+      </div>
 
-    return(
-        <>
-            <p>Your cat {id} was deleted</p>
-            <Link to={"/"}>
-                <p>Go home</p>
-            </Link>
-        </>
-    )
-
+      <Link to={"/"}>
+          <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey"/>
+      </Link>
+    </>
+  );
 }

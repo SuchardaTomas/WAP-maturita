@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 export default function CatLink(props) {
   return (
     <>
+      <div className="column">
         <div className="card custom-card">
           <div className="card-content">
             <p className="subtitle">{props.name}</p>
@@ -25,6 +26,7 @@ export default function CatLink(props) {
             </p>
           </footer>
         </div>
+      </div>
     </>
   );
 }
