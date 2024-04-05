@@ -14,10 +14,12 @@ body {
 .card {
   padding: 2em;
   background-color: #14161A;
+  color: white;
 }
 
 h1 {
   margin-bottom: 2rem;
+  color: white;
 }
 
 .custom-card {

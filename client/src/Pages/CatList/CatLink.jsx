@@ -10,7 +10,7 @@ export default function CatLink(props) {
           <footer className="card-footer">
             <p className="card-footer-item">
               <span>
-                <Link to={"/updatecat"}>
+                <Link to={`/updatecat/${props.id}`}>
                   <p>Update cat</p>
                 </Link>
               </span>

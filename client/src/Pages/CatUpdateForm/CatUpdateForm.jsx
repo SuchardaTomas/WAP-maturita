@@ -63,35 +63,67 @@ export default function CatUpdateForm() {
 
   return (
     <>
-      <h1>Cat update form</h1>
+      <h1>Update {cat.name}</h1>
 
-      <form>
-        <input
-          type="text"
-          required
-          name="name"
-          placeholder="Enter name"
-          defaultValue={cat.name}
-          onChange={(e) => handleChange(e)}
-        />
-        <input
-          type="number"
-          required
-          name="legs"
-          placeholder="Enter number of legs"
-          defaultValue={cat.legs}
-          onChange={(e) => handleChange(e)}
-        />
-        <input
-          type="text"
-          required
-          name="color"
-          placeholder="Enter color"
-          defaultValue={cat.color}
-          onChange={(e) => handleChange(e)}
-        />
-        <button onClick={handlePost}>Update cat</button>
-      </form>
+      <div className="field">
+          <div className="control has-icons-left has-icons-right">
+            <input
+              className="input is-medium"
+              name="name"
+              type="text"
+              placeholder="Enter name of cat"
+              required
+              defaultValue={cat.name}
+              onChange={(e) => handleChange(e)}
+            />
+            <span className="icon is-small is-left">
+              <i className="fas fa-envelope fa-xs" />
+            </span>
+            <span className="icon is-small is-right">
+              <i className="fas fa-check fa-xs" />
+            </span>
+          </div>
+        </div>
+
+        <div className="field">
+          <div className="control has-icons-left has-icons-right">
+            <input
+              className="input is-medium"
+              type="number"
+              name="legs"
+              placeholder="Enter number of legs"
+              required
+              defaultValue={cat.legs}
+              onChange={(e) => handleChange(e)}
+            />
+            <span className="icon is-left">
+              <i className="fas fa-envelope fa-sm" />
+            </span>
+            <span className="icon is-right">
+              <i className="fas fa-check fa-sm" />
+            </span>
+          </div>
+        </div>
+
+        <div className="field">
+          <div className="control has-icons-left has-icons-right">
+            <input
+              className="input is-medium"
+              type="text"
+              name="color"
+              placeholder="Enter color"
+              required
+              defaultValue={cat.color}
+              onChange={(e) => handleChange(e)}
+            />
+            <span className="icon is-medium is-left">
+              <i className="fas fa-envelope" />
+            </span>
+            <span className="icon is-medium is-right">
+              <i className="fas fa-check" />
+            </span>
+          </div>
+        </div>
 
       <p>{info}</p>
 
