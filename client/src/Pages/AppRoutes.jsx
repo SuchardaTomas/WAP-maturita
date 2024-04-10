@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage/MainPage";
 
-import CatView from "./CatView/CatView";
-import CatList from "./CatList/CatList";
-import CatCreateForm from "./CatCreateForm/CatCreateForm";
-import CatUpdateForm from "./CatUpdateForm/CatUpdateForm";
-import CreatedCat from "./CatCreateForm/CreatedCat";
-import CatDeleted from "./CatView/CatDeleted";
+import CatView from "./View/CatView";
+import CatList from "./List/CatList";
+import CatCreateForm from "./CreateForm/CatCreateForm";
+import CatUpdateForm from "./UpdateForm/CatUpdateForm";
+import CreatedCat from "./CreateForm/CreatedCat";
+import CatDeleted from "./View/CatDeleted";
 
 export default function AppRoutes() {
   return (
