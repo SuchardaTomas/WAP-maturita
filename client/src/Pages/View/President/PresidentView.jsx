@@ -1,38 +1,38 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { getCatById, deleteCat } from "../../Models/Cat";
+import { getPresidentById, deletePresident } from "../../Models/President";
 import { useEffect, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-export default function CatView() {
+export default function PresidentView() {
   const { id } = useParams();
-  const [cat, setCat] = useState();
+  const [president, setPresident] = useState();
   const [loaded, setLoaded] = useState();
   const [formData, setFormData] = useState();
   const [info, setInfo] = useState();
   const navigate = useNavigate();
 
   const load = async () => {
-    const data = await getCatById(id);
+    const data = await getPresidentById(id);
     if (data.status === 500 || data.status === 404) return setLoaded(null);
     if (data.status === 200) {
-      setCat(data.payload);
+      setPresident(data.payload);
       setLoaded(true);
     }
   };
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    if (formData === cat.name) {
-      const result = await deleteCat(id);
+    if (formData === president.name) {
+      const result = await deletePresident(id);
       if (result.status === 200) {
         redirect(id);
       } else {
         setInfo(result.msg);
       }
     } else {
-      setInfo("Wrong cat name");
+      setInfo("Wrong president name");
     }
   };
 
@@ -41,7 +41,7 @@ export default function CatView() {
   };
 
   const redirect = (id) => {
-    return navigate(`/deletedcat/${id}`);
+    return navigate(`/deletedpresident/${id}`);
   };
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function CatView() {
   if (loaded === null) {
     return (
       <>
-        <p>Cat not found</p>
+        <p>President not found</p>
       </>
     );
   }
@@ -59,29 +59,30 @@ export default function CatView() {
   if (!loaded) {
     return (
       <>
-        <p>Loading cat...</p>
+        <p>Loading president...</p>
       </>
     );
   }
 
   return (
     <>
-      <h1>{cat.name}</h1>
+      <h1>{president.name}</h1>
 
       <div className="card">
         <div className="card-content">
           <div className="content">
             <p>ID: {id}</p>
-            <p>Legs: {cat.legs}</p>
-            <p>Color: {cat.color}</p>
+            <p>age: {president.age}</p>
+            <p>time in function: {president.time_in_function}</p>
+            <p>charisma: {president.charisma}</p>
           </div>
         </div>
       </div>
 
       <form>
-        <p className="subtitle">Napište jméno pro smazání kočky</p> <br/>
-        <input className="input" type="text" placeholder={cat.name} onChange={handleChange} />
-        <button className="button is-medium is-dark" onClick={handleDelete}>Delete cat</button>
+        <p className="subtitle">Napište jméno pro smazání prezidenta</p> <br/>
+        <input className="input" type="text" placeholder={president.name} onChange={handleChange} />
+        <button className="button is-medium is-dark" onClick={handleDelete}>Delete president</button>
         <p>{info}</p>
       </form>
 

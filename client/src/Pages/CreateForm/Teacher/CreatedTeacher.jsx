@@ -3,8 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-// /deletedcat/:id
-export default function CatDeleted() {
+export default function createdTeacher() {
   const { id } = useParams();
 
   return (
@@ -12,11 +11,13 @@ export default function CatDeleted() {
       <div className="card">
         <div className="card-content">
           <div className="content">
-            <p>Cat {id} was deleted</p>
+            Teacher {id} was created
           </div>
         </div>
       </div>
-
+      <Link to={`/teacher/${id}`}>
+        <p>View teacher</p>
+      </Link>
       <Link to={"/"}>
           <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey"/>
       </Link>

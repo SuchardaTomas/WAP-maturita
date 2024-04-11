@@ -1,22 +1,22 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { createdBusinessman } from "../../Models/Businessman";
+import { createTeacher } from "../../Models/Teacher";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
  
-export default function BusinessmanCreateForm() {
+export default function TeacherCreateForm() {
   const [formData, setFormData] = useState();
   const [info, setInfo] = useState();
   const navigate = useNavigate();
 
   const postForm = async () => {
-    const businessman = await createBusinessman(formData);
-    if (cat.status === 201) {
-      redirectToSuccessPage(businessman.payload._id);
+    const teacher = await createTeacher(formData);
+    if (teacher.status === 201) {
+      redirectToSuccessPage(teacher.payload._id);
     } else {
-      setInfo(cat.msg);
+      setInfo(teacher.msg);
     }
   };
   const handleChange = (e) => {
@@ -27,12 +27,12 @@ export default function BusinessmanCreateForm() {
     postForm();
   };
   const redirectToSuccessPage = (id) => {
-    return navigate(`/createdbusinessman/${id}`);
+    return navigate(`/createdteacher/${id}`);
   };
 
   return (
     <>
-      <h1>Businessman create form</h1>
+      <h1>Teacher create form</h1>
 
         <div className="field">
           <div className="control has-icons-left has-icons-right">
@@ -40,7 +40,7 @@ export default function BusinessmanCreateForm() {
               className="input is-medium"
               name="name"
               type="text"
-              placeholder="Enter name of Businessman"
+              placeholder="Enter name of teacher"
               required
               onChange={(e) => handleChange(e)}
             />
@@ -57,9 +57,9 @@ export default function BusinessmanCreateForm() {
           <div className="control has-icons-left has-icons-right">
             <input
               className="input is-medium"
-              type="number"
-              name="age"
-              placeholder="Enter age"
+              type="text"
+              name="subject"
+              placeholder="Enter subject"
               required
               onChange={(e) => handleChange(e)}
             />
@@ -76,28 +76,9 @@ export default function BusinessmanCreateForm() {
           <div className="control has-icons-left has-icons-right">
             <input
               className="input is-medium"
-              type="text"
-              name="company_name"
-              placeholder="Enter Company Name"
-              required
-              onChange={(e) => handleChange(e)}
-            />
-            <span className="icon is-medium is-left">
-              <i className="fas fa-envelope" />
-            </span>
-            <span className="icon is-medium is-right">
-              <i className="fas fa-check" />
-            </span>
-          </div>
-        </div>
-
-        <div className="field">
-          <div className="control has-icons-left has-icons-right">
-            <input
-              className="input is-medium"
               type="number"
-              name="money"
-              placeholder="Enter amounth of money"
+              name="age"
+              placeholder="Enter age"
               required
               onChange={(e) => handleChange(e)}
             />
@@ -110,7 +91,8 @@ export default function BusinessmanCreateForm() {
           </div>
         </div>
 
-        <button className="button is-medium is-dark" onClick={handlePost}>Create businessman</button>
+
+        <button className="button is-medium is-dark" onClick={handlePost}>Create teacher</button>
 
       <p>{info}</p>
 

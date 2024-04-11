@@ -1,40 +1,75 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { createCat } from "../../Models/Cat";
+import { updateCat, getCatById } from "../../Models/Student";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
- 
-export default function CatCreateForm() {
+
+export default function CatUpdateForm() {
+  const { id } = useParams();
   const [formData, setFormData] = useState();
   const [info, setInfo] = useState();
+  const [loaded, setLoaded] = useState();
+  const [cat, setCat] = useState();
   const navigate = useNavigate();
 
+  const load = async () => {
+    const data = await getCatById(id);
+    if (data.status === 500 || data.status === 404) return setLoaded(null);
+    if (data.status === 200) {
+      setCat(data.payload);
+      setLoaded(true);
+    }
+  };
+
   const postForm = async () => {
-    const cat = await createCat(formData);
-    if (cat.status === 201) {
+    const cat = await updateCat(id, formData);
+    if (cat.status === 200) {
       redirectToSuccessPage(cat.payload._id);
     } else {
       setInfo(cat.msg);
     }
   };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const handlePost = (e) => {
     e.preventDefault();
     postForm();
   };
+
   const redirectToSuccessPage = (id) => {
-    return navigate(`/createdcat/${id}`);
+    return navigate(`/cat/${id}`);
   };
+
+  useEffect(() => {
+    load();
+  }, []);
+
+  if (loaded === null) {
+    return (
+      <>
+        <p>Cat not found</p>
+      </>
+    );
+  }
+
+  if (!loaded) {
+    return (
+      <>
+        <p>Loading cat...</p>
+      </>
+    );
+  }
 
   return (
     <>
-      <h1>Cat create form</h1>
+      <h1>Update {cat.name}</h1>
 
-        <div className="field">
+      <div className="field">
           <div className="control has-icons-left has-icons-right">
             <input
               className="input is-medium"
@@ -42,6 +77,7 @@ export default function CatCreateForm() {
               type="text"
               placeholder="Enter name of cat"
               required
+              defaultValue={cat.name}
               onChange={(e) => handleChange(e)}
             />
             <span className="icon is-small is-left">
@@ -61,6 +97,7 @@ export default function CatCreateForm() {
               name="legs"
               placeholder="Enter number of legs"
               required
+              defaultValue={cat.legs}
               onChange={(e) => handleChange(e)}
             />
             <span className="icon is-left">
@@ -80,6 +117,7 @@ export default function CatCreateForm() {
               name="color"
               placeholder="Enter color"
               required
+              defaultValue={cat.color}
               onChange={(e) => handleChange(e)}
             />
             <span className="icon is-medium is-left">
@@ -91,7 +129,9 @@ export default function CatCreateForm() {
           </div>
         </div>
 
-        <button className="button is-medium is-dark" onClick={handlePost}>Create cat</button>
+      
+
+      <button className="button is-medium is-dark" onClick={handlePost}>Create cat</button>
 
       <p>{info}</p>
 
