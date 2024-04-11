@@ -14,9 +14,10 @@ mongoose
   .catch(() => console.log(err));
 
 const indexRouter = require("./routes/index");
-const catsRouter = require("./routes/cats");
 const teachersRouter = require("./routes/teachers");
 const studentsRouter = require("./routes/students");
+const presidentsRouter = require("./routes/presidents");
+const businessmenRouter = require("./routes/bussinemen");
 
 const app = express();
 
@@ -34,9 +35,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 
 //http://localhost:3000/cats
-app.use("/cats", catsRouter);
 app.use("/teachers", teachersRouter);
 app.use("/students", studentsRouter);
+app.use("/presidents", presidentsRouter);
+app.use("/businessmen", businessmenRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));

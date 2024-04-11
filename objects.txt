@@ -18,4 +18,4 @@ BUSINESSMAN
     NAME    
     AGE
     COMPANY_NAME
-    PROPERTY
+    MONEY
