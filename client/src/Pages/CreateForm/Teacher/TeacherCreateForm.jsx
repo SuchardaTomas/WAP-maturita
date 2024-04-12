@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { createTeacher } from "../../Models/Teacher";
+import { createTeacher } from "../../../Models/Teacher";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -96,7 +96,7 @@ export default function TeacherCreateForm() {
 
       <p>{info}</p>
 
-      <Link to={"/"}>
+      <Link to={"/teacher"}>
           <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey"/>
       </Link>
     </>

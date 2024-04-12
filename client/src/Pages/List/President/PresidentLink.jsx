@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function CatLink(props) {
+export default function PresidentLink(props) {
   return (
     <>
       <div className="column">
@@ -11,16 +11,16 @@ export default function CatLink(props) {
           <footer className="card-footer">
             <p className="card-footer-item">
               <span>
-                <Link to={`/updatecat/${props.id}`}>
-                  <p>Update cat</p>
+                <Link to={`/updatepresident/${props.id}`}>
+                  <p>Update president</p>
                 </Link>
               </span>
             </p>
 
             <p className="card-footer-item">
               <span>
-                <Link to={`/cat/${props.id}`}>
-                  <p>View Cat</p>
+                <Link to={`/president/${props.id}`}>
+                  <p>View President</p>
                 </Link>
               </span>
             </p>

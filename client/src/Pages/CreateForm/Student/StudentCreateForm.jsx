@@ -1,12 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { createStudent } from "../../Models/Student";
+import { createStudent } from "../../../Models/Student";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
  
-export default function BusinessmanCreateForm() {
+export default function StudentCreateForm() {
   const [formData, setFormData] = useState();
   const [info, setInfo] = useState();
   const navigate = useNavigate();
@@ -96,7 +96,7 @@ export default function BusinessmanCreateForm() {
 
       <p>{info}</p>
 
-      <Link to={"/"}>
+      <Link to={"/student"}>
           <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey"/>
       </Link>
     </>

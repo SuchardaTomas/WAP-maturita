@@ -1,34 +1,34 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { updateteacher, getTeacherById } from "../../Models/Teacher";
+import { updateTeacher, getTeacherById } from "../../../Models/Teacher";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 
-export default function CatUpdateForm() {
+export default function TeacherUpdateForm() {
   const { id } = useParams();
   const [formData, setFormData] = useState();
   const [info, setInfo] = useState();
   const [loaded, setLoaded] = useState();
-  const [cat, setCat] = useState();
+  const [teacher, setTeacher] = useState();
   const navigate = useNavigate();
 
   const load = async () => {
-    const data = await getCatById(id);
+    const data = await getTeacherById(id);
     if (data.status === 500 || data.status === 404) return setLoaded(null);
     if (data.status === 200) {
-      setCat(data.payload);
+      setTeacher(data.payload);
       setLoaded(true);
     }
   };
 
   const postForm = async () => {
-    const cat = await updateCat(id, formData);
-    if (cat.status === 200) {
-      redirectToSuccessPage(cat.payload._id);
+    const teacher = await updateTeacher(id, formData);
+    if (teacher.status === 200) {
+      redirectToSuccessPage(teacher.payload._id);
     } else {
-      setInfo(cat.msg);
+      setInfo(teacher.msg);
     }
   };
 
@@ -42,7 +42,7 @@ export default function CatUpdateForm() {
   };
 
   const redirectToSuccessPage = (id) => {
-    return navigate(`/cat/${id}`);
+    return navigate(`/teacher/${id}`);
   };
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export default function CatUpdateForm() {
   if (loaded === null) {
     return (
       <>
-        <p>Cat not found</p>
+        <p>Teacher not found</p>
       </>
     );
   }
@@ -60,14 +60,14 @@ export default function CatUpdateForm() {
   if (!loaded) {
     return (
       <>
-        <p>Loading cat...</p>
+        <p>Loading teacher...</p>
       </>
     );
   }
 
   return (
     <>
-      <h1>Update {cat.name}</h1>
+      <h1>Update {teacher.name}</h1>
 
       <div className="field">
           <div className="control has-icons-left has-icons-right">
@@ -75,9 +75,9 @@ export default function CatUpdateForm() {
               className="input is-medium"
               name="name"
               type="text"
-              placeholder="Enter name of cat"
+              placeholder="Enter name of teacher"
               required
-              defaultValue={cat.name}
+              defaultValue={teacher.name}
               onChange={(e) => handleChange(e)}
             />
             <span className="icon is-small is-left">
@@ -93,11 +93,11 @@ export default function CatUpdateForm() {
           <div className="control has-icons-left has-icons-right">
             <input
               className="input is-medium"
-              type="number"
-              name="legs"
-              placeholder="Enter number of legs"
+              type="text"
+              name="subject"
+              placeholder="Enter subject"
               required
-              defaultValue={cat.legs}
+              defaultValue={teacher.subject}
               onChange={(e) => handleChange(e)}
             />
             <span className="icon is-left">
@@ -113,11 +113,11 @@ export default function CatUpdateForm() {
           <div className="control has-icons-left has-icons-right">
             <input
               className="input is-medium"
-              type="text"
-              name="color"
+              type="number"
+              name="age"
               placeholder="Enter color"
               required
-              defaultValue={cat.color}
+              defaultValue={teacher.age}
               onChange={(e) => handleChange(e)}
             />
             <span className="icon is-medium is-left">
@@ -131,7 +131,7 @@ export default function CatUpdateForm() {
 
       
 
-      <button className="button is-medium is-dark" onClick={handlePost}>Create cat</button>
+      <button className="button is-medium is-dark" onClick={handlePost}>Update teacher</button>
 
       <p>{info}</p>
 

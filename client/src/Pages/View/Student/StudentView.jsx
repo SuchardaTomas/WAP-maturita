@@ -1,5 +1,5 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { getStudentById, deleteStudent } from "../../Models/Student";
+import { getStudentById, deleteStudent } from "../../../Models/Student";
 import { useEffect, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -72,7 +72,7 @@ export default function StudentView() {
         <div className="card-content">
           <div className="content">
             <p>ID: {id}</p>
-            <p>isic: {student.legs}</p>
+            <p>isic: {student.isic}</p>
             <p>classroom: {student.classroom}</p>
           </div>
         </div>

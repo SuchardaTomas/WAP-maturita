@@ -18,7 +18,7 @@ export default function createdTeacher() {
       <Link to={`/teacher/${id}`}>
         <p>View teacher</p>
       </Link>
-      <Link to={"/"}>
+      <Link to={"/teacher"}>
           <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey"/>
       </Link>
     </>

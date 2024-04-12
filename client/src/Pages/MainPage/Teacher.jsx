@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
 export default function Teacher() {
   return (
-    <div className="card-container">
-
-      <Link to={"/createcat"}>
+    <>
+      <Link to={"/createteacher"}>
         <div className="card main-card">
           <div className="card-content">
             <div className="content">
@@ -14,7 +16,7 @@ export default function Teacher() {
         </div>
       </Link>
 
-      <Link to={"/cats"}>
+      <Link to={"/teachers"}>
         <div className="card main-card">
           <div className="card-content">
             <div className="content">
@@ -23,6 +25,10 @@ export default function Teacher() {
           </div>
         </div>
       </Link>
-    </div>
+
+      <Link to={"/"}>
+        <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey" />
+      </Link>
+    </>
   );
 }

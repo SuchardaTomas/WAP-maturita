@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
-import CatLink from "./CatLink";
+import BusinessmanLink from "./BusinessmanLink";
 import { useState, useEffect } from "react";
-import { getAllCats } from "../../Models/Cat";
+import { getAllBusinessmen } from "../../../Models/Businessman";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-export default function CatList() {
-  const [cats, setCats] = useState();
+export default function BusinessmanList() {
+  const [businessmen, setBusinessmen] = useState();
   const [loaded, setLoaded] = useState(false);
 
   const load = async () => {
-    const data = await getAllCats();
+    const data = await getAllBusinessmen();
     if (data.status === 500 || data.status === 404) return setLoaded(null);
     if (data.status === 200) {
-      setCats(data.payload);
+      setBusinessmen(data.payload);
       setLoaded(true);
     }
   };
@@ -26,7 +26,7 @@ export default function CatList() {
   if (loaded === null) {
     return (
       <>
-        <p>Cats not found</p>
+        <p>Businessmen not found</p>
       </>
     );
   }
@@ -34,20 +34,20 @@ export default function CatList() {
   if (!loaded) {
     return (
       <>
-        <p>Cats are loading</p>
+        <p>Businessmen are loading</p>
       </>
     );
   }
 
   return (
     <>
-      <h1>Cat list</h1>
+      <h1>Businessmen list</h1>
 
-      {cats.map((cat, index) => (
-        <CatLink key={index} name={cat.name} id={cat._id} />
+      {businessmen.map((businessman, index) => (
+        <BusinessmanLink key={index} name={businessman.name} id={businessman._id} />
       ))}
 
-      <Link to={"/"}>
+      <Link to={"/businessman"}>
         <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey" />
       </Link>
     </>

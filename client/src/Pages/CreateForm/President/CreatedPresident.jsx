@@ -18,7 +18,7 @@ export default function createdBusinessman() {
       <Link to={`/president/${id}`}>
         <p>View president</p>
       </Link>
-      <Link to={"/"}>
+      <Link to={"/president"}>
           <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey"/>
       </Link>
     </>

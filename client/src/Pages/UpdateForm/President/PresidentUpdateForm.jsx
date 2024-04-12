@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { updatePresident, getPresidentById } from "../../Models/President";
+import { updatePresident, getPresidentById } from "../../../Models/President";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -151,7 +151,7 @@ export default function PresidentUpdateForm() {
 
       
 
-      <button className="button is-medium is-dark" onClick={handlePost}>Create president</button>
+      <button className="button is-medium is-dark" onClick={handlePost}>Update president</button>
 
       <p>{info}</p>
 

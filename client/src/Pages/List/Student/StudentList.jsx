@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
-import CatLink from "./CatLink";
+import StudentLink from "./StudentLink";
 import { useState, useEffect } from "react";
-import { getAllCats } from "../../Models/Cat";
+import { getAllStudents } from "../../../Models/Student";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-export default function CatList() {
-  const [cats, setCats] = useState();
+export default function StudentList() {
+  const [students, setStudents] = useState();
   const [loaded, setLoaded] = useState(false);
 
   const load = async () => {
-    const data = await getAllCats();
+    const data = await getAllStudents();
     if (data.status === 500 || data.status === 404) return setLoaded(null);
     if (data.status === 200) {
-      setCats(data.payload);
+      setStudents(data.payload);
       setLoaded(true);
     }
   };
@@ -26,7 +26,7 @@ export default function CatList() {
   if (loaded === null) {
     return (
       <>
-        <p>Cats not found</p>
+        <p>Students not found</p>
       </>
     );
   }
@@ -34,20 +34,20 @@ export default function CatList() {
   if (!loaded) {
     return (
       <>
-        <p>Cats are loading</p>
+        <p>Students are loading</p>
       </>
     );
   }
 
   return (
     <>
-      <h1>Cat list</h1>
+      <h1>Student list</h1>
 
-      {cats.map((cat, index) => (
-        <CatLink key={index} name={cat.name} id={cat._id} />
+      {students.map((student, index) => (
+        <StudentLink key={index} name={student.name} id={student._id} />
       ))}
 
-      <Link to={"/"}>
+      <Link to={"/student"}>
         <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey" />
       </Link>
     </>

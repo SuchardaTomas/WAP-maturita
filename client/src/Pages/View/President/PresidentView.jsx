@@ -1,5 +1,5 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { getPresidentById, deletePresident } from "../../Models/President";
+import { getPresidentById, deletePresident } from "../../../Models/President";
 import { useEffect, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

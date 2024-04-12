@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { updateBusinessman, getBusinessmanById } from "../../Models/Businessman";
+import { updateBusinessman, getBusinessmanById } from "../../../Models/Businessman";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -151,7 +151,7 @@ export default function BusinessmanUpdateForm() {
 
       
 
-      <button className="button is-medium is-dark" onClick={handlePost}>Create businessman</button>
+      <button className="button is-medium is-dark" onClick={handlePost}>Update businessman</button>
 
       <p>{info}</p>
 

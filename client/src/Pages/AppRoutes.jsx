@@ -30,13 +30,10 @@ import PresidentDeleted from "./View/President/PresidentDeleted";
 
 import BusinessmanView from "./View/Businessman/BusinessmanView";
 import BusinessmanList from "./List/Businessman/BusinessmanList";
-import BusinessmanCreateForm from "./CreateForm/Student/StudentCreateForm";
+import BusinessmanCreateForm from "./CreateForm/Businessman/BusinessmanCreateForm";
 import BusinessmanUpdateForm from "./UpdateForm/Businessman/BusinessmanUpdateForm";
-import CreatedBusinessman from "./CreateForm/Student/CreatedStudent";
+import CreatedBusinessman from "./CreateForm/Businessman/CreatedBusibessman";
 import BusinessmanDeleted from "./View/Businessman/BusinessmanDeleted";
-
-
-
 
 
 export default function AppRoutes() {
@@ -47,7 +44,7 @@ export default function AppRoutes() {
         
         <Route path="/" element={<MainPage />} />
 
-        <Route path= "/student" element={<Student />} />
+        <Route path="/student" element={<Student />} />
         <Route path="/student/:id" element={<StudentView />} />
         <Route path="/students" element={<StudentList />} />
         <Route path="/createstudent" element={<StudentCreateForm />} />
@@ -55,7 +52,7 @@ export default function AppRoutes() {
         <Route path="/createdstudent/:id" element={<CreatedStudent />} />
         <Route path="/deletedstudent/:id" element={<StudentDeleted />} />
 
-        <Route path= "/teacher" element={<Teacher />} />
+        <Route path="/teacher" element={<Teacher />} />
         <Route path="/teacher/:id" element={<TeacherView />} />
         <Route path="/teachers" element={<TeacherList />} />
         <Route path="/createteacher" element={<TeacherCreateForm />} />
@@ -63,7 +60,7 @@ export default function AppRoutes() {
         <Route path="/createdteacher/:id" element={<CreatedTeacher />} />
         <Route path="/deletedteacher/:id" element={<TeacherDeleted />} />
 
-        <Route path= "/president" element={<President />} />
+        <Route path="/president" element={<President />} />
         <Route path="/president/:id" element={<PresidentView />} />
         <Route path="/presidents" element={<PresidentList />} />
         <Route path="/createpresident" element={<PresidentCreateForm />} />
@@ -71,13 +68,13 @@ export default function AppRoutes() {
         <Route path="/createdpresident/:id" element={<CreatedPresident />} />
         <Route path="/deletedpresident/:id" element={<PresidentDeleted />} />
         
-        <Route path= "/businessman" element={<Businessman />} />
+        <Route path="/businessman" element={<Businessman />} />
         <Route path="/businessman/:id" element={<BusinessmanView />} />
         <Route path="/businessmen" element={<BusinessmanList />} />
         <Route path="/createbusinessman" element={<BusinessmanCreateForm />} />
         <Route path="/updatebusinessman/:id" element={<BusinessmanUpdateForm />} />
         <Route path="/createdbusinessman/:id" element={<CreatedBusinessman />} />
-        <Routes path="/deletedbusinessman/:id" element={<BusinessmanDeleted />} />
+        <Route path="/deletedbusinessman/:id" elemen={<BusinessmanDeleted/>}/>
 
 
       </Routes>

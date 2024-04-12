@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
-import CatLink from "./CatLink";
+import PresidentLink from "./PresidentLink";
 import { useState, useEffect } from "react";
-import { getAllCats } from "../../Models/Cat";
+import { getAllPresidents } from "../../../Models/President";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-export default function CatList() {
-  const [cats, setCats] = useState();
+export default function PresidentList() {
+  const [presidents, setPresidents] = useState();
   const [loaded, setLoaded] = useState(false);
 
   const load = async () => {
-    const data = await getAllCats();
+    const data = await getAllPresidents();
     if (data.status === 500 || data.status === 404) return setLoaded(null);
     if (data.status === 200) {
-      setCats(data.payload);
+      setPresidents(data.payload);
       setLoaded(true);
     }
   };
@@ -26,7 +26,7 @@ export default function CatList() {
   if (loaded === null) {
     return (
       <>
-        <p>Cats not found</p>
+        <p>Presidents not found</p>
       </>
     );
   }
@@ -34,20 +34,20 @@ export default function CatList() {
   if (!loaded) {
     return (
       <>
-        <p>Cats are loading</p>
+        <p>Presidents are loading</p>
       </>
     );
   }
 
   return (
     <>
-      <h1>Cat list</h1>
+      <h1>President list</h1>
 
-      {cats.map((cat, index) => (
-        <CatLink key={index} name={cat.name} id={cat._id} />
+      {presidents.map((president, index) => (
+        <PresidentLink key={index} name={president.name} id={president._id} />
       ))}
 
-      <Link to={"/"}>
+      <Link to={"/president"}>
         <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey" />
       </Link>
     </>
