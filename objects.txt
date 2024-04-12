@@ -19,12 +19,3 @@ BUSINESSMAN
     AGE
     COMPANY_NAME
     MONEY
-
-
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-
-<Link to={"/"}>
-    <FontAwesomeIcon icon={faArrowLeft} size="3x" color="grey"/>
-</Link>
