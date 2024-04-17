@@ -19,3 +19,14 @@ BUSINESSMAN
     AGE
     COMPANY_NAME
     MONEY
+
+
+
+
+Co stáhnout:
+    Blackbox AI
+    Material Icon Theme
+    Prettier
+    Terminal
+    Notepad++
+    
