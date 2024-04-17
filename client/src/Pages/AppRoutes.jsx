@@ -74,7 +74,7 @@ export default function AppRoutes() {
         <Route path="/createbusinessman" element={<BusinessmanCreateForm />} />
         <Route path="/updatebusinessman/:id" element={<BusinessmanUpdateForm />} />
         <Route path="/createdbusinessman/:id" element={<CreatedBusinessman />} />
-        <Route path="/deletedbusinessman/:id" elemen={<BusinessmanDeleted/>}/>
+        <Route path="/deletedbusinessman/:id" element={<BusinessmanDeleted/>}/>
 
 
       </Routes>
